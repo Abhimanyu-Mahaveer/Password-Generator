@@ -1,12 +1,36 @@
 function generatePassword() {
-    const digit = parseInt(prompt("Enter the length of the password:")); // Set the desired length of the password
+    const digit = parseInt(document.getElementById('digit').value);
+    const numeric = parseInt(document.getElementById('numeric').value);
+    const lower = parseInt(document.getElementById('lower').value);
+    const upper = parseInt(document.getElementById('upper').value);
+    const symbols = parseInt(document.getElementById('symbols').value);
+
     const lowerCases = 'qwertyuiopasdfghjklzxcvbnm';
     const upperCases = 'QWERTYUIOPASDFGHJKLZXCVBNM';
-    const symbols = '!@#$%^&*()_-+=[]{}|;:,.<>?';
+    const symbolChars = '!@#$%^&*()_-+=[]{}|;:,.<>?';
+
     let password = '';
 
-    for (let i = 0; i < digit; i++) {
-        const rand = Math.floor(Math.random() * 4);
+    for (let i = 0; i < numeric; i++) {
+        password += String(Math.floor(Math.random() * 10)); // Add a random digit
+    }
+
+    for (let i = 0; i < lower; i++) {
+        password += lowerCases.charAt(Math.floor(Math.random() * lowerCases.length)); // Add a random lowercase letter
+    }
+
+    for (let i = 0; i < upper; i++) {
+        password += upperCases.charAt(Math.floor(Math.random() * upperCases.length)); // Add a random uppercase letter
+    }
+
+    for (let i = 0; i < symbols; i++) {
+        password += symbolChars.charAt(Math.floor(Math.random() * symbolChars.length)); // Add a random symbol
+    }
+
+    const remainingChars = digit - (numeric + lower + upper + symbols);
+
+    for (let i = 0; i < remainingChars; i++) {
+        const rand = Math.floor(Math.random() * 3);
 
         switch (rand) {
             case 0:
@@ -19,10 +43,13 @@ function generatePassword() {
                 password += upperCases.charAt(Math.floor(Math.random() * upperCases.length)); // Add a random uppercase letter
                 break;
             case 3:
-                password += symbols.charAt(Math.floor(Math.random() * symbols.length)); // Add a random symbol
+                password += symbolChars.charAt(Math.floor(Math.random() * symbolChars.length)); // Add a random symbol
                 break;
         }
     }
+
+    // Shuffle the password characters
+    password = password.split('').sort(() => Math.random() - 0.5).join('');
 
     document.getElementById('password-display').textContent = password;
 }
