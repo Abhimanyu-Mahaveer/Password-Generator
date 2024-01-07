@@ -9,16 +9,15 @@ body {
     0% {
         background-position: 0% 50%;
     }
- 
+
     50% {
         background-position: 100% 50%;
     }
- 
+
     100% {
         background-position: 0% 50%;
     }
 }
-
 
 #password-container {
     text-align: center;
@@ -27,9 +26,26 @@ body {
     border-radius: 8px;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
     opacity: 0.8;
-background-size: 20px 20px;
-background-image:  repeating-linear-gradient(0deg, #318451, #318451 1px, #ffffff 1px, #ffffff);
+    background-size: 20px 20px;
+    background-image: repeating-linear-gradient(0deg, #318451, #318451 1px, #ffffff 1px, #ffffff);
+}
+
+#options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 5px;
+}
+
+input {
+    width: 50px;
+    text-align: center;
 }
 
 h1 {
@@ -57,4 +73,24 @@ h1 {
 #generate-btn:hover {
     background-color: #45a049;
     transform: scale(1.05);
+}
+#options-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 5px;
+}
+
+input {
+    width: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#numeric {
+    margin-left: 10px;
 }
