@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
-    <link rel="stylesheet" href="style.css"> <!-- Check the path to your CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="password-container">
     <h1>Password Generator</h1>
+    <div id="options-container">
+        <label for="digit">Total Length:</label>
+        <input type="number" id="digit" value="12">
+        <label for="numeric">Numeric Values:</label>
+        <input type="number" id="numeric" value="4">
+        <label for="lower">Lowercase Letters:</label>
+        <input type="number" id="lower" value="4">
+        <label for="upper">Uppercase Letters:</label>
+        <input type="number" id="upper" value="4">
+        <label for="symbols">Symbols:</label>
+        <input type="number" id="symbols" value="4">
+    </div>
     <p id="password-display"></p>
     <button id="generate-btn" onclick="generatePassword()">Generate Password</button>
 </div>
